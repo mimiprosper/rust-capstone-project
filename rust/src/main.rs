@@ -9,7 +9,7 @@ const RPC_USER: &str = "alice";
 const RPC_PASS: &str = "password";
 
 fn main() -> bitcoincore_rpc::Result<()> {
-    // Connect to RPC (base connection without wallet).
+    // Connect to RPC (base connection without wallet)
     let rpc = Client::new(
         RPC_URL,
         Auth::UserPass(RPC_USER.to_owned(), RPC_PASS.to_owned()),
