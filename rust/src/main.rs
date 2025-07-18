@@ -8,6 +8,16 @@ const RPC_URL: &str = "http://127.0.0.1:18443";
 const RPC_USER: &str = "alice";
 const RPC_PASS: &str = "password";
 
+/// Main function of the program.
+///
+/// Connects to the Bitcoin Core node's RPC interface, creates wallets if they
+/// don't exist, generates mining addresses, mines blocks to mature the coinbase
+/// transaction, gets the miner's balance, generates a new address for the trader,
+/// sends 20 BTC from the miner to the trader, mines a new block to confirm the
+/// transaction, gets the transaction details, finds the change output, calculates
+/// the fee, and writes the transaction details to a file named `out.txt` in the
+/// project root directory.
+
 fn main() -> bitcoincore_rpc::Result<()> {
     // Connect to RPC (base connection without wallet).
     let rpc = Client::new(
